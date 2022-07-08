@@ -7,10 +7,9 @@
         mc:Ignorable="d"
         Title="Order" Height="450" Width="800">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Center" Height="174" Margin="0,260,0,0" VerticalAlignment="Top" Width="800">
-            <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-        </Border>
         <Button x:Name="Menu" Content="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="89" Click="BackToMenu"/>
+        <Button x:Name="ShowLastOrder" Content="Show Las Orders&#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,287,290,28"/>
 
     </Grid>
 </Window>

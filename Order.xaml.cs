@@ -29,6 +29,28 @@ namespace Kawiarnia
             MainWindow mainWindow = new MainWindow();
             this.Visibility = Visibility.Hidden;
             mainWindow.Show();
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var context = new KawiarniaEntities1();
+            Console.WriteLine(context.Orders.First());
+           
+            
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            InitializeComponent();
+            KawiarniaEntities1 kawiarniaEntities1 = new KawiarniaEntities1();
+            var orders = from d in kawiarniaEntities1.Orders select d;
+
+            foreach (var o in orders)
+            {
+                Console.WriteLine(o.OrderId);
+                Console.WriteLine(o.Customer.FirstName);
+            }
         }
     }
 }
