@@ -31,5 +31,12 @@ namespace Kawiarnia
             this.Visibility = Visibility.Hidden;
             order.Show();
         }
+
+        private void OpenAddCustomerView(object sender, RoutedEventArgs e)
+        {
+            AddCustomerView addCustomerView = new AddCustomerView();
+            this.Visibility = Visibility.Hidden;
+            addCustomerView.Show();
+        }
     }
 }
