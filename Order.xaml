@@ -8,8 +8,8 @@
         Title="Order" Height="450" Width="800">
     <Grid>
         <Button x:Name="Menu" Content="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="89" Click="BackToMenu"/>
-        <Button x:Name="ShowLastOrder" Content="Show Las Orders&#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,287,290,28"/>
+        <Button x:Name="ShowLastOrder" Content="Show Last Order &#xD;&#xA;Infromation &#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
+        <DataGrid x:Name="gridLastOrder" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,270,0,0"/>
 
     </Grid>
 </Window>
