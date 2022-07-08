@@ -22,7 +22,10 @@ namespace Kawiarnia
         public Order()
         {
             InitializeComponent();
+            
         }
+        private int milk = 1;
+        private int coffee= 1;
 
         private void BackToMenu(object sender, RoutedEventArgs e)
         {
@@ -39,7 +42,7 @@ namespace Kawiarnia
            
             
         }
-
+       
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             InitializeComponent();
@@ -65,17 +68,62 @@ namespace Kawiarnia
                             CustomerName = c.FirstName,
                             CoffeeName = cof.CoffeeName,
                             MilkName = m.MilkName,
-                          }).Take(5).ToList();
-
-            
-            this.gridLastOrder.ItemsSource = orders;
+                          }).ToList();
 
 
+            this.gridLastOrder.ItemsSource = Enumerable.Reverse(orders);
 
 
 
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            KawiarniaEntities1 kawiarniaEntities1 = new KawiarniaEntities1();
+            var email = from em in kawiarniaEntities1.Customer where em.email == this.textBoxEmail.Text select em;
+            foreach (var item in email)
+            {
+                var order = new Orders()
+                {
+                    CustromerId = item.CustomerId,
+                    CoffeeId = coffee,
+                    MilkId = milk,
+                };
+                kawiarniaEntities1.Orders.Add(order);
+                
+
+            }
+            kawiarniaEntities1.SaveChanges();
+        }
+
+        private void RadioCowMilk_Checked(object sender, RoutedEventArgs e)
+        {
+            milk = 1;
+        }
+
+        private void radioGoatMilk_Checked(object sender, RoutedEventArgs e)
+        {
+            milk = 2;
+        }
+
+        private void radioSheepMilk_Checked(object sender, RoutedEventArgs e)
+        {
+            milk = 3;
+        }
+
+        private void radioArabica_Checked(object sender, RoutedEventArgs e)
+        {
+            coffee = 1;
+        }
+
+        private void radioRobusta_Checked(object sender, RoutedEventArgs e)
+        {
+            coffee = 2;
+        }
+
+        private void radioLatte_Checked(object sender, RoutedEventArgs e)
+        {
+            coffee = 3;
+        }
     }
 }

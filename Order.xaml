@@ -9,7 +9,15 @@
     <Grid>
         <Button x:Name="Menu" Content="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="89" Click="BackToMenu"/>
         <Button x:Name="ShowLastOrder" Content="Show Last Order &#xD;&#xA;Infromation &#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
-        <DataGrid x:Name="gridLastOrder" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,270,0,0"/>
+        <DataGrid x:Name="gridLastOrder" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,270,501,0"/>
+        <RadioButton x:Name="RadioCowMilk"  GroupName="Milk" Content="CowMilk" HorizontalAlignment="Left" Margin="335,69,0,0" VerticalAlignment="Top" Checked="RadioCowMilk_Checked"/>
+        <RadioButton x:Name="radioGoatMilk" GroupName="Milk" Content="GoatMilk" HorizontalAlignment="Left" Margin="334,93,0,0" VerticalAlignment="Top" Checked="radioGoatMilk_Checked"/>
+        <RadioButton x:Name="radioSheepMilk" GroupName="Milk"  Content="SheepMilk" HorizontalAlignment="Left" Margin="334,113,0,0" VerticalAlignment="Top" Checked="radioSheepMilk_Checked"/>
+        <RadioButton x:Name="radioArabica" GroupName="Coffee" Content="Arabica" HorizontalAlignment="Left" Margin="478,69,0,0" VerticalAlignment="Top" Checked="radioArabica_Checked"/>
+        <RadioButton x:Name="radioRobusta" GroupName="Coffee"  Content="Robutas" HorizontalAlignment="Left" Margin="477,93,0,0" VerticalAlignment="Top" Checked="radioRobusta_Checked"/>
+        <RadioButton x:Name="radioLatte" GroupName="Coffee" Content="Latte" HorizontalAlignment="Left" Margin="477,113,0,0" VerticalAlignment="Top" Checked="radioLatte_Checked"/>
+        <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="22" Margin="334,169,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="205"/>
+        <Button Content="Order Coffee" HorizontalAlignment="Left" Height="48" Margin="350,217,0,0" VerticalAlignment="Top" Width="172" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
