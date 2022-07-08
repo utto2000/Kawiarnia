@@ -47,15 +47,6 @@ namespace Kawiarnia
         {
             InitializeComponent();
             KawiarniaEntities1 kawiarniaEntities1 = new KawiarniaEntities1();
-            /* var orders = kawiarniaEntities1.Orders.Join(kawiarniaEntities1.Customer,
-                 o => o.CustromerId,
-                 c => c.CustomerId,
-                 (o, c) => new
-                 {
-                     Firstname = c.FirstName,
-                 }
-                 ).Take(5);
- */
             var orders = (from o in kawiarniaEntities1.Orders
                           join c in kawiarniaEntities1.Customer
                           on o.CustromerId equals c.CustomerId

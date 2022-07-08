@@ -8,7 +8,7 @@
         Title="Order" Height="450" Width="800">
     <Grid>
         <Button x:Name="Menu" Content="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="89" Click="BackToMenu"/>
-        <Button x:Name="ShowLastOrder" Content="Show Last Order &#xD;&#xA;Infromation &#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
+        <Button x:Name="ShowLastOrder" Content="Show few Last Order &#xA;Infromation &#xA;" HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="144" Click="Button_Click" Margin="10,217,0,0"/>
         <DataGrid x:Name="gridLastOrder" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,270,501,0"/>
         <RadioButton x:Name="RadioCowMilk"  GroupName="Milk" Content="CowMilk" HorizontalAlignment="Left" Margin="335,69,0,0" VerticalAlignment="Top" Checked="RadioCowMilk_Checked"/>
         <RadioButton x:Name="radioGoatMilk" GroupName="Milk" Content="GoatMilk" HorizontalAlignment="Left" Margin="334,93,0,0" VerticalAlignment="Top" Checked="radioGoatMilk_Checked"/>
