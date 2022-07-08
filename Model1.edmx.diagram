@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="29fb3c82c397421d9797727d129fd699" Name="Diagram1">
+        <EntityTypeShape EntityType="KawiarniaModel.Coffee" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KawiarniaModel.Customer" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KawiarniaModel.Milk" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KawiarniaModel.Orders" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="KawiarniaModel.FK__Orders__CoffeeId__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="KawiarniaModel.FK__Orders__Custrome__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="KawiarniaModel.FK__Orders__MilkId__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
