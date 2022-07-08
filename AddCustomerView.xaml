@@ -8,10 +8,10 @@
         Title="AddCustomerView" Height="450" Width="800">
     <Grid RenderTransformOrigin="0.502,0.498">
         <Button x:Name="Menu" Content="Menu" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="89" Click="BackToMenu"/>
-        <TextBox x:Name="Firstname" HorizontalAlignment="Left" Height="20" Margin="164,166,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+        <TextBox x:Name="Firstname" HorizontalAlignment="Left" Height="20" Margin="164,166,0,0" TextWrapping="Wrap" Text="John" VerticalAlignment="Top" Width="120" />
         <TextBlock HorizontalAlignment="Left" Height="74" Margin="25,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="278" FontSize="36"><Run Language="pl-pl" Text="Add Customer"/></TextBlock>
-        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="164,0,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" Width="120"/>
-        <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="164,244,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Email" HorizontalAlignment="Left" Margin="164,0,0,0" TextWrapping="Wrap" Text="john@example.com" VerticalAlignment="Center" Width="120"/>
+        <TextBox x:Name="Age" HorizontalAlignment="Left" Margin="164,244,0,0" TextWrapping="Wrap" Text="18" VerticalAlignment="Top" Width="120"/>
         <TextBlock HorizontalAlignment="Left" Margin="25,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="79"><Run Language="pl-pl" Text="Firstname"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="25,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="79"><Run Language="pl-pl" Text="Email"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="25,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="79"><Run Language="pl-pl" Text="Age"/></TextBlock>

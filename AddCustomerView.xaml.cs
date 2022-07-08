@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 using System.Data.Sql;
 namespace Kawiarnia
 {
-    /// <summary>
-    /// Logika interakcji dla klasy AddCustomerView.xaml
-    /// </summary>
+    
     public partial class AddCustomerView : Window
     {
         public AddCustomerView()
