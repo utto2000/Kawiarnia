@@ -24,8 +24,11 @@ namespace Kawiarnia
 
         private void btn_AddCutomerToDataBase_Click(object sender, RoutedEventArgs e)
         {
-            var context = new KawiarniaEntities1();
             
+           
+
+            var context = new KawiarniaEntities1();
+           if(int.TryParse(this.Age.Text, out int n)) { 
             var customer = new Customer()
             {
                 FirstName  = this.Firstname.Text,
@@ -34,6 +37,11 @@ namespace Kawiarnia
             };
             context.Customer.Add(customer);
             context.SaveChanges();
+            }
+            else
+            {
+                this.mustBeNumber.Content = "Age must be a number";
+            }
         }
 
         private void BackToMenu(object sender, RoutedEventArgs e)

@@ -16,6 +16,7 @@
         <TextBlock HorizontalAlignment="Left" Margin="25,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="79"><Run Language="pl-pl" Text="Email"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="25,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="18" Width="79"><Run Language="pl-pl" Text="Age"/></TextBlock>
         <Button x:Name="btn_AddCutomerToDataBase" Content="Add Customer&#xD;&#xA;" HorizontalAlignment="Left" Margin="400,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.437,-0.115" Height="22" Width="93" Click="btn_AddCutomerToDataBase_Click"/>
+        <Label x:Name="mustBeNumber" Content="" HorizontalAlignment="Left" Height="32" Margin="289,244,0,0" VerticalAlignment="Top" Width="89"/>
 
     </Grid>
 </Window>
