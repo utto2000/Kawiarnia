@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KawiarniaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="CoffeeId" />
+          </Key>
+          <Property Name="CoffeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CoffeeName" Type="varchar" MaxLength="255" />
+          <Property Name="MilkDescription" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="255" />
+          <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Age" Type="int" />
+        </EntityType>
+        <EntityType Name="Milk">
+          <Key>
+            <PropertyRef Name="MilkId" />
+          </Key>
+          <Property Name="MilkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MilkName" Type="varchar" MaxLength="255" />
+          <Property Name="MilkDescription" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustromerId" Type="int" />
+          <Property Name="CoffeeId" Type="int" />
+          <Property Name="MilkId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Orders__CoffeeId__3D5E1FD2">
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coffee">
+              <PropertyRef Name="CoffeeId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CoffeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Custrome__3C69FB99">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustromerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__MilkId__3E52440B">
+          <End Role="Milk" Type="Self.Milk" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milk">
+              <PropertyRef Name="MilkId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="MilkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KawiarniaModelStoreContainer">
+          <EntitySet Name="Coffee" EntityType="Self.Coffee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Milk" EntityType="Self.Milk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Orders__CoffeeId__3D5E1FD2" Association="Self.FK__Orders__CoffeeId__3D5E1FD2">
+            <End Role="Coffee" EntitySet="Coffee" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Custrome__3C69FB99" Association="Self.FK__Orders__Custrome__3C69FB99">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__MilkId__3E52440B" Association="Self.FK__Orders__MilkId__3E52440B">
+            <End Role="Milk" EntitySet="Milk" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KawiarniaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Coffee">
+          <Key>
+            <PropertyRef Name="CoffeeId" />
+          </Key>
+          <Property Name="CoffeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CoffeeName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CoffeeDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__CoffeeId__3D5E1FD2" FromRole="Coffee" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Custrome__3C69FB99" FromRole="Customer" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Milk">
+          <Key>
+            <PropertyRef Name="MilkId" />
+          </Key>
+          <Property Name="MilkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MilkName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MilkDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__MilkId__3E52440B" FromRole="Milk" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustromerId" Type="Int32" />
+          <Property Name="CoffeeId" Type="Int32" />
+          <Property Name="MilkId" Type="Int32" />
+          <NavigationProperty Name="Coffee" Relationship="Self.FK__Orders__CoffeeId__3D5E1FD2" FromRole="Orders" ToRole="Coffee" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__Custrome__3C69FB99" FromRole="Orders" ToRole="Customer" />
+          <NavigationProperty Name="Milk" Relationship="Self.FK__Orders__MilkId__3E52440B" FromRole="Orders" ToRole="Milk" />
+        </EntityType>
+        <Association Name="FK__Orders__CoffeeId__3D5E1FD2">
+          <End Role="Coffee" Type="Self.Coffee" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coffee">
+              <PropertyRef Name="CoffeeId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CoffeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__Custrome__3C69FB99">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="CustromerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__MilkId__3E52440B">
+          <End Role="Milk" Type="Self.Milk" Multiplicity="0..1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Milk">
+              <PropertyRef Name="MilkId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="MilkId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KawiarniaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Coffee" EntityType="Self.Coffee" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Milk" EntityType="Self.Milk" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <AssociationSet Name="FK__Orders__CoffeeId__3D5E1FD2" Association="Self.FK__Orders__CoffeeId__3D5E1FD2">
+            <End Role="Coffee" EntitySet="Coffee" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__Custrome__3C69FB99" Association="Self.FK__Orders__Custrome__3C69FB99">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__MilkId__3E52440B" Association="Self.FK__Orders__MilkId__3E52440B">
+            <End Role="Milk" EntitySet="Milk" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KawiarniaModelStoreContainer" CdmEntityContainer="KawiarniaEntities">
+          <EntitySetMapping Name="Coffee">
+            <EntityTypeMapping TypeName="KawiarniaModel.Coffee">
+              <MappingFragment StoreEntitySet="Coffee">
+                <ScalarProperty Name="CoffeeId" ColumnName="CoffeeId" />
+                <ScalarProperty Name="CoffeeName" ColumnName="CoffeeName" />
+                <ScalarProperty Name="CoffeeDescription" ColumnName="MilkDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="KawiarniaModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Milk">
+            <EntityTypeMapping TypeName="KawiarniaModel.Milk">
+              <MappingFragment StoreEntitySet="Milk">
+                <ScalarProperty Name="MilkId" ColumnName="MilkId" />
+                <ScalarProperty Name="MilkName" ColumnName="MilkName" />
+                <ScalarProperty Name="MilkDescription" ColumnName="MilkDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="KawiarniaModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="CustromerId" ColumnName="CustromerId" />
+                <ScalarProperty Name="CoffeeId" ColumnName="CoffeeId" />
+                <ScalarProperty Name="MilkId" ColumnName="MilkId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
