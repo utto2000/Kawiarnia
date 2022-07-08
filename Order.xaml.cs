@@ -44,19 +44,31 @@ namespace Kawiarnia
         {
             InitializeComponent();
             KawiarniaEntities1 kawiarniaEntities1 = new KawiarniaEntities1();
-            var orders = kawiarniaEntities1.Orders.Join(kawiarniaEntities1.Customer,
-                o => o.CustromerId,
-                c => c.CustomerId,
-                (o, c) => new
-                {
-                    Firstname = c.FirstName,
-                }
-                ).Take(5);
-            foreach (var order in orders)
-            {
-                Console.WriteLine(order.Firstname);
-            }
-            this.gridLastOrder.ItemsSource = orders.ToList();
+            /* var orders = kawiarniaEntities1.Orders.Join(kawiarniaEntities1.Customer,
+                 o => o.CustromerId,
+                 c => c.CustomerId,
+                 (o, c) => new
+                 {
+                     Firstname = c.FirstName,
+                 }
+                 ).Take(5);
+ */
+            var orders = (from o in kawiarniaEntities1.Orders
+                          join c in kawiarniaEntities1.Customer
+                          on o.CustromerId equals c.CustomerId
+                          join cof in kawiarniaEntities1.Coffee
+                          on o.CoffeeId equals cof.CoffeeId
+                          join m in kawiarniaEntities1.Milk
+                          on o.MilkId equals m.MilkId
+                          select new
+                          {
+                            CustomerName = c.FirstName,
+                            CoffeeName = cof.CoffeeName,
+                            MilkName = m.MilkName,
+                          }).Take(5).ToList();
+
+            
+            this.gridLastOrder.ItemsSource = orders;
 
 
 
