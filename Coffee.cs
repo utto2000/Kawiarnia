@@ -22,7 +22,7 @@ namespace Kawiarnia
     
         public int CoffeeId { get; set; }
         public string CoffeeName { get; set; }
-        public string CoffeeDescription { get; set; }
+        public string CoffeDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Orders> Orders { get; set; }
