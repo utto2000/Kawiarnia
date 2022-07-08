@@ -30,6 +30,7 @@ namespace Kawiarnia
             Order order = new Order();
             this.Visibility = Visibility.Hidden;
             order.Show();
+            
         }
 
         private void OpenAddCustomerView(object sender, RoutedEventArgs e)

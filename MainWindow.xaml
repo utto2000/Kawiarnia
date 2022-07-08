@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Order" HorizontalAlignment="Left" Height="90" Margin="107,152,0,0" VerticalAlignment="Top" Width="172" Click="OpenWindow"/>
-        <Button Content="Add Customer" HorizontalAlignment="Left" Height="90" Margin="524,152,0,0" VerticalAlignment="Top" Width="172"/>
+        <Button x:Name="AddCustomer" Content="Add Customer" HorizontalAlignment="Left" Height="90" Margin="524,152,0,0" VerticalAlignment="Top" Width="172" Click="OpenAddCustomerView"/>
 
     </Grid>
 </Window>
